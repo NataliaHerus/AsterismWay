@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsterismWay", "AsterismWay\AsterismWay.csproj", "{8990E16D-C173-435E-A612-404232A1883B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsterismWay.IdentityServer", "AsterismWay.IdentityServer\AsterismWay.IdentityServer.csproj", "{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8990E16D-C173-435E-A612-404232A1883B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8990E16D-C173-435E-A612-404232A1883B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8990E16D-C173-435E-A612-404232A1883B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8990E16D-C173-435E-A612-404232A1883B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31D6CAB8-4A6D-4CA1-AA77-B572A5A9E244}
+	EndGlobalSection
+EndGlobal
