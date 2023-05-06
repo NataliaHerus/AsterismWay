@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  asterismway:
+    image: ${DOCKER_REGISTRY-}asterismway
+    build:
+      context: .
+      dockerfile: AsterismWay/Dockerfile
+
+  asterismway.identityserver:
+    image: ${DOCKER_REGISTRY-}asterismwayidentityserver
+    build:
+      context: .
+      dockerfile: AsterismWay.IdentityServer/Dockerfile
+

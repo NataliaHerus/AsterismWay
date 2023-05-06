@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsterismWay", "AsterismWay\AsterismWay.csproj", "{8990E16D-C173-435E-A612-404232A1883B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsterismWay", "AsterismWay\AsterismWay.csproj", "{8990E16D-C173-435E-A612-404232A1883B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsterismWay.IdentityServer", "AsterismWay.IdentityServer\AsterismWay.IdentityServer.csproj", "{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsterismWay.IdentityServer", "AsterismWay.IdentityServer\AsterismWay.IdentityServer.csproj", "{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D3E74CA6-ACF8-4CC4-9301-BF0094B8752B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4733E09B-E985-4AF5-8CAD-2C9A7751ABAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E74CA6-ACF8-4CC4-9301-BF0094B8752B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E74CA6-ACF8-4CC4-9301-BF0094B8752B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E74CA6-ACF8-4CC4-9301-BF0094B8752B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E74CA6-ACF8-4CC4-9301-BF0094B8752B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
