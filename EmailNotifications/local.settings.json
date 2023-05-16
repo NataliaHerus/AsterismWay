@@ -1,0 +1,9 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "SqlConnectionStringAsterismWay": "Data Source=DESKTOP-APOUCO6;User ID=Natalia;Password=P@ssword2;Database=AsterismWay;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+    "SqlConnectionStringIdentityServer": "Data Source=DESKTOP-APOUCO6;User ID=Natalia;Password=P@ssword2;Database=AsterismWay.IdenityServer;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  }
+}
