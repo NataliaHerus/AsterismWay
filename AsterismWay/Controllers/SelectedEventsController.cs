@@ -1,7 +1,5 @@
 ﻿using AsterismWay.DTOs;
-using AsterismWay.Services;
 using AsterismWay.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AsterismWay.Controllers
@@ -23,6 +21,12 @@ namespace AsterismWay.Controllers
             return Ok(await _selectedEventsService.GetEventsByUser());
         }
 
+        [HttpGet]
+        [Route("get/{id}")]
+        public async Task<IActionResult> GetEvent([FromRoute] int id)
+        {
+            return Ok(await _selectedEventsService.GetEventAsync(id));
+        }
 
         [HttpPost]
         [Route("create")]
@@ -30,16 +34,17 @@ namespace AsterismWay.Controllers
         {
             try
             {
-                return Ok(await _selectedEventsService.CreateSelectedEventAsync(Event));
+                await _selectedEventsService.CreateSelectedEventAsync(Event);
+                return Ok();
             }
-            catch (ArgumentException ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("delete/{id}")]
         public async Task<IActionResult> DeleteSelectedEvent([FromRoute] int id)
         {
             try

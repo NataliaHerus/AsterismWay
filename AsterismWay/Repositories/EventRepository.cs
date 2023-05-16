@@ -42,6 +42,12 @@ namespace AsterismWay.Repositories
             return await _dbContext.Events.Include(e => e.Frequency).Include(e => e.Category).ToListAsync();
         }
 
+        public async Task<IEnumerable<Event>> GetClosest()
+        {
+            return await _dbContext.Events.Where(x=> x.StartDate > DateTime.Now && x.Year == DateTime.Now.Year).
+                Include(e => e.Frequency).Include(e => e.Category).OrderBy(x => x.StartDate).ToListAsync();
+        }
+
         public async Task<int> SaveChangesAsync()
         {
             return await _dbContext.SaveChangesAsync();

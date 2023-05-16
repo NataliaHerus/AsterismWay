@@ -9,5 +9,6 @@ namespace AsterismWay.Services.Interfaces
         Task<EventDto> UpdateEventAsync(EventDto dto);
         Task<EventDto> GetEventById(int id);
         Task<List<EventDto>> GetEvents();
+        Task<List<EventDto>> GetClosest();
     }
 }

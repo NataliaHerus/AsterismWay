@@ -93,10 +93,11 @@ app.UseCors(
                 .AllowCredentials());
 
 app.UseForwardedHeaders();
-app.UseAuthorization();
+
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

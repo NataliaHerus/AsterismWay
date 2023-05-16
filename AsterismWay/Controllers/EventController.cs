@@ -37,7 +37,14 @@ namespace AsterismWay.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("collection/closest")]
+        public async Task<IActionResult> GetClosest()
+        {
+            return Ok(await _eventService.GetClosest());
+        }
+
+        [HttpGet]
+        [Route("get/{id}")]
         public async Task<IActionResult> GetEvent([FromRoute] int id)
         {
             return Ok(await _eventService.GetEventById(id));
@@ -51,7 +58,7 @@ namespace AsterismWay.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("delete/{id}")]
         public async Task<IActionResult> DeleteEvent([FromRoute] int id)
         {
             try

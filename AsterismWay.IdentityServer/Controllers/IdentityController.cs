@@ -17,11 +17,12 @@ namespace AsterismWay.IdentityServer.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly AppSettings appSettings;
-
-        public IdentityController(UserManager<User> userManager, IOptions<AppSettings> appSettings)
+        protected readonly IHttpContextAccessor _httpContextAccessor;
+        public IdentityController(UserManager<User> userManager, IOptions<AppSettings> appSettings, IHttpContextAccessor httpContextAccessor)
         {
             this.userManager = userManager;
             this.appSettings = appSettings.Value;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpPost]
@@ -45,6 +46,15 @@ namespace AsterismWay.IdentityServer.Controllers
             }
 
             return BadRequest(result.Errors);
+        }
+
+        [HttpGet]
+        [Route("user")]
+        public async Task<ActionResult> GetCurrentUser()
+        {
+            string userId = _httpContextAccessor.HttpContext.User.Identity.Name;
+            var result = await userManager.FindByIdAsync(userId);
+            return Ok(result);
         }
 
         [HttpPost]

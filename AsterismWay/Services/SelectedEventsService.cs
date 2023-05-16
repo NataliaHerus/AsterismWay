@@ -36,6 +36,15 @@ namespace AsterismWay.Services
 
         public async Task<SelectedEventsDto> CreateSelectedEventAsync(SelectedEventsDto dto)
         {
+            dto.UserId = _httpContextAccessor.HttpContext.User.Identity.Name;
+            var selectedEvents = await _selectedEventsRepository.GetEventsByUserId(dto.UserId);
+            foreach (var selectedEvent in selectedEvents)
+            {
+                if (selectedEvent.EventId == dto.EventId && selectedEvent.UserId == dto.UserId)
+                {
+                    throw new InvalidOperationException("Ця подія вже вибрана вами");
+                }
+            }
             var Event = _mapper.Map<SelectedEvents>(dto);
             await _selectedEventsRepository.AddSelectedEventsAsync(Event);
             await _selectedEventsRepository.SaveChangesAsync();
@@ -49,6 +58,13 @@ namespace AsterismWay.Services
             await _selectedEventsRepository.SaveChangesAsync();
 
             return _mapper.Map<SelectedEventsDto>(deletedEvent);
+        }
+
+        public async Task<SelectedEventsDto> GetEventAsync(int eventId)
+        {
+            string userId = _httpContextAccessor.HttpContext.User.Identity.Name;
+            SelectedEvents Event = await _selectedEventsRepository.GetEvent(userId, eventId);
+            return _mapper.Map<SelectedEventsDto>(Event);
         }
     }
 }

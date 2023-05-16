@@ -1,6 +1,7 @@
 ﻿using AsterismWay.Data;
 using AsterismWay.Data.Entities;
 using AsterismWay.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace AsterismWay.Repositories
 {
@@ -26,6 +27,11 @@ namespace AsterismWay.Repositories
         public async Task<List<SelectedEvents>> GetEventsByUserId(string userId)
         {
             return  _dbContext.SelectedEvents.Where(x => x.UserId == userId).ToList();
+        }
+
+        public async Task<SelectedEvents> GetEvent(string userId, int eventId)
+        {
+            return await _dbContext.SelectedEvents.FirstOrDefaultAsync(x => x.UserId == userId && x.EventId == eventId);
         }
 
         public async Task<SelectedEvents> GetSelectedEventById(int id)

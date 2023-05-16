@@ -71,6 +71,7 @@ app.UseCors(options => options
 app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

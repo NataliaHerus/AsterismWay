@@ -8,6 +8,7 @@ namespace AsterismWay.Repositories.Interfaces
         Task<SelectedEvents> AddSelectedEventsAsync(SelectedEvents selectedEvent);
         Task<SelectedEvents> DeleteAsync(SelectedEvents SelectedEvent);
         Task<SelectedEvents> GetSelectedEventById(int id);
+        Task<SelectedEvents> GetEvent(string userId, int eventId);
         Task<int> SaveChangesAsync();
     }
 }

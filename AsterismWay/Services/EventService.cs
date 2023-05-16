@@ -74,6 +74,10 @@ namespace AsterismWay.Services
             return _mapper.Map<EventDto>(Event);
         }
 
+        public async Task<List<EventDto>> GetClosest()
+        {
+            return _mapper.Map<List<EventDto>>(await _eventRepository.GetClosest());
+        }
         public async Task<List<EventDto>> GetEvents()
         {
             return _mapper.Map<List<EventDto>>(await _eventRepository.GetAllAsync());
