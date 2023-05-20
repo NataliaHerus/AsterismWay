@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label for="confirmedPassword1" class="block text-900 font-medium text-xl mb-2">Підтвердіть
                             пароль</label>
-                        <p-password id="confirmedPassword1" placeholder=" Confirm password" [toggleMask]="true" styleClass="mb-2"
+                        <p-password id="confirmedPassword1" placeholder=" Confirm password" [toggleMask]="true" [feedback]="false" styleClass="mb-2"
                             inputStyleClass="w-full p-3 md:w-30rem" formControlName="cofirmedPassword" ></p-password>
                         <div class="alert alert-danger error-message"
                             *ngIf="registerFormControl['cofirmedPassword'].touched && registerFormControl['cofirmedPassword'].errors?.['required']">

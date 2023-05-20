@@ -14,6 +14,7 @@ export class EventService {
   private updatePath = environment.apiUrl + 'event/update'
   private deletePath = environment.apiUrl + 'event/delete'
   private getPath = environment.apiUrl + 'event/get'
+  private uploadFilePath = environment.apiUrl + 'event/save/file'
 
   constructor(private http: HttpClient) { 
 
@@ -24,6 +25,16 @@ export class EventService {
       map((result) => result), catchError(err => throwError(err))
     )
   }
+
+ uploadFile(data: any) : Observable<any> {
+    /*return this.http.post(this.uploadFilePath, data);*/
+    const formData = new FormData();
+    formData.append('file', data, 'jpg');
+      return this.http.post(this.uploadFilePath, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+  }
+
 
   update(data: any): Observable<any> {
     return this.http.put(this.updatePath, data).

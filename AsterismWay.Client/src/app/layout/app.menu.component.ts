@@ -1,6 +1,8 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
+import { AuthService } from '../demo/services/identity services/auth.service';
+import { map } from 'rxjs';
 
 @Component({
     selector: 'app-menu',
@@ -9,13 +11,25 @@ import { LayoutService } from './service/app.layout.service';
 export class AppMenuComponent implements OnInit {
 
     model: any[] = [];
+    role: string='';
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(public layoutService: LayoutService, public authService: AuthService) { }
 
     ngOnInit() {
+        this.getRole().subscribe(res =>{
+            if (!res)
+            {
+                 this.role='';
+            }
+            else
+            {
+                this.role=res.role;
+            }
+        })
         this.model = [
             {
                 label: 'Домашня сторінка',
+                role: [''],
                 items: [
                     {
                         label: 'Авторизація',
@@ -32,6 +46,7 @@ export class AppMenuComponent implements OnInit {
             },
             {
                 label: 'Астрономічні явища',
+                role: ['Admin', 'User'],
                 icon: 'pi pi-fw pi-briefcase',
                 items: [
                     {
@@ -45,7 +60,30 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['/event/collection']
                     },
                 ]
+            },
+            {
+                label: 'Панель Адміністратора',
+                role: ['Admin'],
+                icon: 'pi pi-fw pi-briefcase',
+                items: [
+                    {
+                        label: 'Керувати подіями',
+                        icon: 'pi pi-fw pi-calendar',
+                        routerLink: ['/admin/events']
+                    },
+                    {
+                        label: 'Усі користувачі',
+                        icon: 'pi pi-fw pi-calendar',
+                        routerLink: ['/admin/users']
+                    },
+                ]
             }
         ];
+    }
+
+    getRole()
+    {
+       return  this.authService.getCurrentUserRole();
+           
     }
 }

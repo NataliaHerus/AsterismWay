@@ -7,10 +7,11 @@ import { NotfoundComponent } from './demo/components/notfound/notfound.component
 import { AuthModule } from './demo/components/auth/auth.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './demo/services/identity services/token-interceptor.service';
+import { HomePageComponent } from './demo/components/home-page/home-page.component';
 
 @NgModule({
     declarations: [
-        AppComponent, NotfoundComponent
+        AppComponent, NotfoundComponent, HomePageComponent
     ],
     imports: [
         AppRoutingModule,

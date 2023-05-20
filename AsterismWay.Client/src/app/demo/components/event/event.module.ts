@@ -19,6 +19,7 @@ import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
 import {TableModule} from 'primeng/table';
 import { AllEventsComponent } from './all-events/all-events.component';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AllEventsComponent } from './all-events/all-events.component';
     DividerModule,
     PanelModule,
     ToastModule,
-    TableModule
+    TableModule,
+    FileUploadModule
   ]
 })
 export class EventModule { }

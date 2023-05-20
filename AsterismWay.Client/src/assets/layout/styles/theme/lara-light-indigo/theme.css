@@ -6271,3 +6271,19 @@ animation: zoom 16s alternate infinite;
       transform: scale(1.5);
   }
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(216, 216, 216);
+}
+
+.p-dialog {
+  background-color: #1e2d40 !important; 
+}

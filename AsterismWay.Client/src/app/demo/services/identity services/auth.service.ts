@@ -11,6 +11,8 @@ export class AuthService {
   private loginPath = environment.identityUrl + 'identity/login'
   private registerPath = environment.identityUrl + 'identity/register'
   private currentUserPath = environment.identityUrl + 'identity/user/'
+  private currentUserRolePath = environment.identityUrl + 'identity/role/'
+  private getAllPath = environment.identityUrl + 'identity/all/'
   private getUserByIdPath = environment.identityUrl + 'accounts/user/'
 
   constructor(private http: HttpClient) { 
@@ -39,6 +41,10 @@ export class AuthService {
     return this.http.get<User>(this.currentUserPath)
   }
 
+  getCurrentUserRole() {
+    return this.http.get<any>(this.currentUserRolePath)
+  }
+
   getUserById(userId: string | null) {
     return this.http.get<User>(this.getUserByIdPath + userId)
   }
@@ -46,6 +52,10 @@ export class AuthService {
   saveToken(token: string) {
     localStorage.setItem('token', token)
   }
+  getAll() : Observable<any> {
+    return this.http.get(this.getAllPath).pipe(
+    map((result) => result), catchError(err => throwError(err))
+    )}
 
   getToken() {
     return localStorage.getItem('token')

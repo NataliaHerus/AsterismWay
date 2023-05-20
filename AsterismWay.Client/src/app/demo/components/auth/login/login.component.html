@@ -22,7 +22,7 @@
                         <p></p>
                         <div class="form-group">
                             <label for="password1" class="block text-900 font-medium text-xl mb-2">Пароль</label>
-                            <p-password id="password1" placeholder="Password" [toggleMask]="true" styleClass="mb-5"
+                            <p-password id="password1" placeholder="Password" [toggleMask]="true" [feedback]="false" styleClass="mb-5"
                                 inputStyleClass="w-full p-3 md:w-30rem" formControlName="password"></p-password>
                             <div class="alert alert-danger error-message"
                                 *ngIf="loginFormControl['password'].touched && loginFormControl['password'].errors?.['required']">
@@ -31,9 +31,12 @@
                         </div>
                     </div>
                     <div class="flex align-items-center justify-content-between mb-5 gap-5">
-                        <a class="font-medium no-underline ml-2 text-right cursor-pointer"
+                        <div class="font-medium no-underline ml-2 text-right cursor-pointer">
+                        <span>Немає аканута?</span>
+                        <a 
                             style="color: var(--primary-color)" [replaceUrl]="true"
-                            [routerLink]="['/auth/register']">Немає аканута? Зареєструйтесь</a>
+                            [routerLink]="['/auth/register']"> Зареєструйтесь</a>
+                        </div>
                     </div>
                     <div>
                         <button type="submit" pButton pRipple label="Увійти" class="w-full p-3 text-xl"></button>

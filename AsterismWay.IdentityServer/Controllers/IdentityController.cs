@@ -3,6 +3,7 @@ using AsterismWay.IdentityServer.Models.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -49,12 +50,37 @@ namespace AsterismWay.IdentityServer.Controllers
         }
 
         [HttpGet]
+        [Route("all")]
+        public async Task<List<User>> GetUsers()
+        {
+            return await Task.Run(() =>
+            {
+                return userManager.Users.ToList();
+            });
+        }
+
+        [HttpGet]
         [Route("user")]
         public async Task<ActionResult> GetCurrentUser()
         {
             string userId = _httpContextAccessor.HttpContext.User.Identity.Name;
             var result = await userManager.FindByIdAsync(userId);
             return Ok(result);
+        }
+
+
+        [HttpGet]
+        [Route("role")]
+        public async Task<ActionResult> GetCurrentRole()
+        {
+            string userId = _httpContextAccessor.HttpContext.User.Identity.Name;
+            var result = await userManager.FindByIdAsync(userId);
+            var a = userManager.GetRolesAsync(result).Result.FirstOrDefault();
+            if (a == null)
+            {
+                return Ok(null);
+            }
+            return Ok(new { role = a }); 
         }
 
         [HttpPost]
