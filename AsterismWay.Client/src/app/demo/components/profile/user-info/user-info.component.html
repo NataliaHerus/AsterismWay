@@ -36,8 +36,8 @@
 							</ng-template>
 			
 							<ng-template let-event pTemplate="gridItem">
-								<div class="col-12 md:col-6">
-									<div class="card m-4 border-3 surface-border" style="width: 280px; height: 300px;">
+								<div class="col-12 md:col-4">
+									<div class="card m-4 border-3 surface-border" style="width: 280px; height: 330px;">
 										<div class="flex flex-wrap gap-2 align-items-center justify-content-between mb-1">
 											<div class="flex align-items-center">
 												<span [class]="'event-badge category-' + event.category.name.toLowerCase()">{{event.category.name.toUpperCase()}}</span>
@@ -49,9 +49,9 @@
 											object-fit: cover;"/>
 											<div class="text-2xl font-bold">{{event.name}}</div>
 											<p></p>
-											<div class="mb-3">{{event.description | slice:0:56}}{{event.description.length > 56 ? '...' : ''}}</div>
+											<div class="mb-3">{{event.description | slice:0:40}}{{event.description.length > 40 ? '...' : ''}}</div>
 										</div>
-										<div class="flex align-items-center justify-content-between">
+										<div class="flex align-items-center justify-content-between" >
 											<span class="font-semibold">Детальніша інформація:</span>
 											<button pButton pRipple type="button" icon="pi pi-search" class="p-button p-component p-button-text p-button-icon-only" (click)="showEventDetails(event.id)"></button>
 										</div>

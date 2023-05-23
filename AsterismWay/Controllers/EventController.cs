@@ -1,6 +1,8 @@
 ﻿using AsterismWay.DTOs;
 using AsterismWay.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AsterismWay.Controllers
 {
@@ -72,6 +74,30 @@ namespace AsterismWay.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut]
+        [Route("save/file")]
+        public async Task<IActionResult> OnFileUploadAsync([FromForm] PhotoFile file)
+        {
+
+            if (file.file.Length > 0)
+            {
+                var filePath = $@"D:\CourseWork\AsterismWay\photos{file.file.FileName}";
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.file.CopyToAsync(stream);
+                }
+
+            }
+
+            return Ok();
+        }
+    }
+
+    public class PhotoFile
+    {
+        public IFormFile file { get; set; }
     }
 
 }

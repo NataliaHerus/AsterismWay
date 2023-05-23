@@ -62,7 +62,6 @@ onFilter(dv: DataView, event: any) {
 showEventDetails(id: number) { 
   this.dialogService.open(EventDetailsComponent, {
     header: 'Деталі про подію',
-    width: '70%',
     data: {id: id },
   });
 

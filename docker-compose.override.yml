@@ -6,7 +6,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - identityUrl=http://asterismway.idenityserver
-      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=AsterismWay;User ID=;Password=;MultipleActiveResultSets=true;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Application Name=LoadBalancerAPI
+      - ConnectionStrings__DefaultConnection=Server=tcp:asterism.database.windows.net;Initial Catalog=AsterismWay;Persist Security Info=False;User ID=asterismManager;Password=P@ssword2;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;Application Name=LoadBalancerAPI
     ports:
       - "7009:80"
       - "7010:443"
@@ -18,7 +18,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=AsterismWay.IdenityServer;User ID=;Password=;MultipleActiveResultSets=true;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Application Name=IdentityServer
+      - ConnectionStrings__DefaultConnection=Server=tcp:asterismidentity.database.windows.net;Initial Catalog=AsterismWay.IdentityServer;Persist Security Info=False;User ID=adminManager;Password=P@ssword2;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;Application Name=IdentityServer
     ports:
       - "7178:80"
       - "7179:443"
