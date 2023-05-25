@@ -34,6 +34,7 @@ namespace AsterismWay.Services
 
         public async Task<EventDto> CreateEventAsync(EventDto dto)
         {
+            dto.Year = dto.StartDate.Year;
             var Event = _mapper.Map<Event>(dto);
             Frequency frequency = await _frequencyRepository.GetFrequencyByName(Event.Frequency.Name);
             Event.Frequency = frequency;

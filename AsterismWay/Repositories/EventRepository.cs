@@ -14,6 +14,8 @@ namespace AsterismWay.Repositories
         }
         public async Task<Event> AddEventAsync(Event Event)
         {
+            var lastEvent = await _dbContext.Events.OrderBy(e => e.Id).LastOrDefaultAsync();
+            Event.Id = lastEvent.Id + 1;
             await _dbContext.Events!.AddAsync(Event);
             await _dbContext.SaveChangesAsync();
             return Event;

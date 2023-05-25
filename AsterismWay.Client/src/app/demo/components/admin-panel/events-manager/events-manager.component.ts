@@ -102,7 +102,7 @@ confirmDeleteSelected() {
     this.events = this.events.filter(val => !this.selectedEvents.includes(val));
     for (let i = 0; i < this.selectedEvents.length; i++) {
     this.eventService.deleteById(this.selectedEvents[i].id!).subscribe(data => {
-        this.messageService.add({ severity: 'success', summary: 'Успіх', detail: 'Подію видалено'})});
+        this.messageService.add({ severity: 'success', summary: 'Успіх', detail: 'Події видалено'})});
     }
     this.selectedEvents = [];
 }
